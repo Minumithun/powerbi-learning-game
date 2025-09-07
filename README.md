@@ -1,1 +1,191 @@
-# powerbi-learning-game
+# powerbi-learning-game<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power BI Learning Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="logo">
+                <h1>📊 Power BI Learning Adventure</h1>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+                <span class="progress-text" id="progressText">0% Complete</span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Welcome Screen -->
+            <div class="screen active" id="welcomeScreen">
+                <div class="welcome-content">
+                    <h2>🚀 Welcome to Power BI Learning Adventure!</h2>
+                    <p>Learn to create stunning dashboards step by step without writing any DAX code!</p>
+                    <div class="feature-highlights">
+                        <div class="feature">
+                            <span class="icon">📈</span>
+                            <h3>Interactive Learning</h3>
+                            <p>Hands-on experience with guided tutorials</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">🎯</span>
+                            <h3>No Coding Required</h3>
+                            <p>Focus on design and functionality, not complex formulas</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">🏆</span>
+                            <h3>Achievement System</h3>
+                            <p>Earn badges as you complete each module</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="startGame()">Start Learning Journey</button>
+                </div>
+            </div>
+
+            <!-- Module Selection Screen -->
+            <div class="screen" id="moduleScreen">
+                <div class="module-grid">
+                    <h2>Choose Your Learning Path</h2>
+                    <div class="modules">
+                        <div class="module-card" data-module="1">
+                            <div class="module-icon">🔗</div>
+                            <h3>Module 1: Data Connection</h3>
+                            <p>Learn how to connect to various data sources</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge1">🔒 Locked</span>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="2">
+                            <div class="module-icon">🧹</div>
+                            <h3>Module 2: Data Preparation</h3>
+                            <p>Clean and transform your data using Power Query</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge2">🔒 Locked</span>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="3">
+                            <div class="module-icon">📊</div>
+                            <h3>Module 3: Creating Visuals</h3>
+                            <p>Build charts, graphs, and visual elements</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge3">🔒 Locked</span>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="4">
+                            <div class="module-icon">🎨</div>
+                            <h3>Module 4: Dashboard Design</h3>
+                            <p>Create beautiful and functional dashboards</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge4">🔒 Locked</span>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="5">
+                            <div class="module-icon">🔍</div>
+                            <h3>Module 5: Filters & Slicers</h3>
+                            <p>Add interactivity with filters and slicers</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge5">🔒 Locked</span>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="6">
+                            <div class="module-icon">📱</div>
+                            <h3>Module 6: Publishing & Sharing</h3>
+                            <p>Share your dashboard with the world</p>
+                            <div class="module-status">
+                                <span class="badge locked" id="badge6">🔒 Locked</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson Screen -->
+            <div class="screen" id="lessonScreen">
+                <div class="lesson-container">
+                    <div class="lesson-sidebar">
+                        <h3 id="moduleTitle">Module 1: Data Connection</h3>
+                        <div class="lesson-steps" id="lessonSteps">
+                            <!-- Steps will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="lesson-content">
+                        <div class="lesson-header">
+                            <h2 id="stepTitle">Step 1: Opening Power BI Desktop</h2>
+                            <div class="lesson-controls">
+                                <button class="btn-secondary" onclick="previousStep()">← Previous</button>
+                                <button class="btn-primary" onclick="nextStep()">Next →</button>
+                            </div>
+                        </div>
+                        <div class="lesson-body">
+                            <div class="screenshot-container">
+                                <img id="stepScreenshot" src="" alt="Step Screenshot" class="screenshot">
+                                <div class="screenshot-overlay" id="screenshotOverlay">
+                                    <!-- Interactive hotspots will be added here -->
+                                </div>
+                            </div>
+                            <div class="instruction-panel">
+                                <div class="instruction-text" id="instructionText">
+                                    <!-- Instructions will be populated by JavaScript -->
+                                </div>
+                                <div class="interactive-task" id="interactiveTask">
+                                    <!-- Interactive elements will be added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div class="screen" id="quizScreen">
+                <div class="quiz-container">
+                    <h2 id="quizTitle">Module Quiz</h2>
+                    <div class="quiz-question" id="quizQuestion">
+                        <!-- Quiz content will be populated by JavaScript -->
+                    </div>
+                    <div class="quiz-options" id="quizOptions">
+                        <!-- Quiz options will be populated by JavaScript -->
+                    </div>
+                    <div class="quiz-controls">
+                        <button class="btn-primary" onclick="submitQuiz()">Submit Answer</button>
+                    </div>
+                    <div class="quiz-result" id="quizResult" style="display: none;">
+                        <!-- Quiz result will be shown here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Screen -->
+            <div class="screen" id="achievementScreen">
+                <div class="achievement-container">
+                    <div class="achievement-celebration">
+                        <div class="trophy">🏆</div>
+                        <h2>Congratulations!</h2>
+                        <p id="achievementText">You've completed Module 1!</p>
+                        <div class="achievement-badge" id="earnedBadge">
+                            <!-- Badge will be populated by JavaScript -->
+                        </div>
+                        <div class="achievement-controls">
+                            <button class="btn-primary" onclick="continueToNextModule()">Continue Learning</button>
+                            <button class="btn-secondary" onclick="backToModules()">Back to Modules</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="game-footer">
+            <p>© 2024 Power BI Learning Adventure | Interactive Tutorial Game</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
